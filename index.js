@@ -2,11 +2,26 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Data = require("./Model/Data");
+const cors = require("cors"); // Import the cors module
 
 const app = express();
 const PORT = 3001;
 
 app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Connect to MongoDB
 mongoose.connect(
