@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-        "start": "node index.js", // Assuming your start script
-    "dev": "nodemon index.js" // Script for development
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
